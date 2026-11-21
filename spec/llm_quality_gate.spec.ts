@@ -5,7 +5,7 @@ import { LastResponse, PostRequest, Send } from '@serenity-js/rest';
 interface AiAgentMockResponse {
     id: number;
     prompt: string;
-    response_format?: string;
+    response_format?: string;j
 }
 
 describe('AI & LLM Quality Gate (ScreenPlay)', () => {
