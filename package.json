@@ -1,5 +1,5 @@
 {
-  "name": "serenity-js-playwright-test-template",
+  "name": "playwright-screenplay-ai-starter",
   "version": "3.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/serenity-js/serenity-js-playwright-test-template.git"
+    "url": "https://github.com/tomasbraino/playwright-screenplay-ai-starter"
   },
   "keywords": [
     "serenity-js",
@@ -20,7 +20,7 @@
     "playwright-test",
     "testing"
   ],
-  "author": "Jan Molak <jan.molak@smartcodeltd.co.uk>",
+  "author": "tomasbraino",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/serenity-js/serenity-js/issues"

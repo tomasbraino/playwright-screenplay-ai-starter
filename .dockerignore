@@ -1,0 +1,6 @@
+node_modules
+reports
+target
+test-results
+.git
+.github
