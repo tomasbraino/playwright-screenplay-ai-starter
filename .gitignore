@@ -1,12 +1,48 @@
-# IntelliJ
-.idea.log
-
-# Build artifacts
-/reports
-/test-results/
-/playwright/.cache/
+# Dependencies
 node_modules/
-test-results/
+/playwright/.cache/
+
+# Test reports & execution outputs
 reports/
+test-results/
+playwright-report/
+blob-report/
+target/
+
+# Playwright authentication states & session tokens
+playwright/.auth/
+.auth/
+*storageState*.json
+
+# Certificates & private keys
+*.pem
+*.key
+*.pfx
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
 *.log
-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / IDE files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Optional VS Code: ignore local workspace state, keep shared settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Operating System files
+.DS_Store
+Thumbs.db
