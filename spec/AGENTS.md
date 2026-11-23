@@ -8,6 +8,7 @@ Act as a Senior SDET and Quality Assistance specialist. Every code generation, r
   - `spec/*.spec.ts`: High-level business scenarios only (`actorCalled('...').attemptsTo(...)`).
     - **Logic Strictly Prohibited in `.spec` Files:** Spec files must remain declarative test narratives only. It is strictly prohibited to write procedural or business logic inside `.spec.ts` files—no conditionals (`if`/`else`, `switch`), loops (`for`, `while`, `forEach`), calculations, data transformations, or variable state management. All logic must be encapsulated within domain Tasks, Questions, or test data builders.
     - **No Raw Locators or URLs:** Never put raw Playwright locators or API URLs directly inside `.spec.ts` files.
+    - **Test Declaration Keyword Preference:** Always use `test(...)` instead of `it(...)` when declaring individual test scenarios (import `test` from `@serenity-js/playwright-test`).
   - `spec/<domain>/tasks/`: Reusable business actions (`Task.where(...)`).
   - `spec/<domain>/questions/`: State queries and assertions (`Question.about(...)`).
   - `spec/<domain>/ui/`: Page elements and resilient locators (`PageElement.located(...)`).

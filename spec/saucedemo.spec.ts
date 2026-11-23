@@ -2,15 +2,15 @@ import { Ensure, equals } from '@serenity-js/assertions';
 import { describe, test } from '@serenity-js/playwright-test';
 import { isVisible, Page, Text } from '@serenity-js/web';
 
-import { errorBannerText } from './saucedemo/questions';
-import { Login, SauceDemoCredentials } from './saucedemo/tasks';
-import { HomePage } from './saucedemo/ui';
+import { cartBadgeCount, errorBannerText } from './saucedemo/questions';
+import { AddProductToCart, Login, NavigateToCart, SauceDemoCredentials } from './saucedemo/tasks';
+import { CartPage, HomePage } from './saucedemo/ui';
 
 describe('SauceDemo Authentication', () => {
 
     describe('Equivalence Partitioning — Happy Path', () => {
 
-       test('allows a standard user to log in successfully and access the inventory', async ({ actor }) => {
+        test('allows a standard user to log in successfully and access the inventory', async ({ actor }) => {
             await actor.attemptsTo(
                 Login.toSauceDemoAsStandardUser(),
                 Ensure.that(Page.current().title(), equals('Swag Labs')),
@@ -53,6 +53,35 @@ describe('SauceDemo Authentication', () => {
                     errorBannerText(),
                     equals('Epic sadface: Username and password do not match any user in this service'),
                 ),
+            );
+        });
+    });
+});
+
+describe('SauceDemo Shopping Cart', () => {
+
+    describe('Adding Products to Cart — Happy Path', () => {
+
+        test('increments the cart badge count when adding a single product', async ({ actor }) => {
+            await actor.attemptsTo(
+                Login.toSauceDemoAsStandardUser(),
+                AddProductToCart.called('Sauce Labs Backpack'),
+                Ensure.that(cartBadgeCount(), equals('1')),
+                NavigateToCart.now(),
+                Ensure.that(Text.of(CartPage.headerTitle()), equals('Your Cart')),
+                Ensure.that(CartPage.itemCalled('Sauce Labs Backpack'), isVisible()),
+            );
+        });
+
+        test('allows adding multiple products and verifies them in the cart', async ({ actor }) => {
+            await actor.attemptsTo(
+                Login.toSauceDemoAsStandardUser(),
+                AddProductToCart.called('Sauce Labs Backpack', 'Sauce Labs Bike Light'),
+                Ensure.that(cartBadgeCount(), equals('2')),
+                NavigateToCart.now(),
+                Ensure.that(Text.of(CartPage.headerTitle()), equals('Your Cart')),
+                Ensure.that(CartPage.itemCalled('Sauce Labs Backpack'), isVisible()),
+                Ensure.that(CartPage.itemCalled('Sauce Labs Bike Light'), isVisible()),
             );
         });
     });

@@ -64,9 +64,19 @@ export const HomePage = {
         PageElement.located(By.css(`[data-test="add-to-cart-${ itemIdentifier }"]`))
             .describedAs(d`add to cart button for ${ itemIdentifier }`),
 
+    addToCartButtonOf: (item: Answerable<PageElement>) =>
+        PageElement.located(By.css('button[data-test^="add-to-cart"]'))
+            .of(item)
+            .describedAs('add to cart button'),
+
     removeButtonFor: (itemIdentifier: Answerable<string>) =>
         PageElement.located(By.css(`[data-test="remove-${ itemIdentifier }"]`))
             .describedAs(d`remove button for ${ itemIdentifier }`),
+
+    removeButtonOf: (item: Answerable<PageElement>) =>
+        PageElement.located(By.css('button[data-test^="remove"]'))
+            .of(item)
+            .describedAs('remove button'),
 
     openMenuButton: () =>
         PageElement.located(By.id('react-burger-menu-btn'))
