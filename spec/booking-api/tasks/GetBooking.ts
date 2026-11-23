@@ -6,7 +6,10 @@ export const GetBooking = {
         Task.where(
             `#actor retrieves booking with id ${bookingId}`,
             Send.a(
-                GetRequest.to(`/booking/${bookingId}`),
+                GetRequest.to(`/booking/${bookingId}`).using({
+                    headers: {
+                        Accept: 'application/json'},
+                }),
             ),
         ),
 };
