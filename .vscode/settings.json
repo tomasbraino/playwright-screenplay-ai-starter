@@ -1,5 +1,23 @@
 {
   "files.autoSave": "onFocusChange",
   "workbench.startupEditor": "readme",
-  "workbench.tree.indent": 12
+  "workbench.tree.indent": 12,
+
+  // Automatically run ESLint fixes whenever you save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // TypeScript/JavaScript quote preferences for VS Code's built-in formatter
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "editor.tabSize": 4,
+
+  // Use ESLint directly as the formatter for TypeScript files
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }
