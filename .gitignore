@@ -1,11 +1,12 @@
 # IntelliJ
-.idea
-
-# Node
-node_modules
-*.log
+.idea.log
 
 # Build artifacts
 /reports
 /test-results/
 /playwright/.cache/
+node_modules/
+test-results/
+reports/
+*.log
+debug.log
