@@ -1,5 +1,5 @@
-import { Answerable, Task, the } from '@serenity-js/core';
-import { Clear, Click, Enter, isVisible, Navigate, Wait } from '@serenity-js/web';
+import { Answerable, Task, the, Wait } from '@serenity-js/core';
+import { Clear, Click, Enter, isVisible, Navigate } from '@serenity-js/web';
 
 import { LoginPage } from '../ui/LoginPage';
 
@@ -25,6 +25,11 @@ export const Login = {
     toSauceDemoAsStandardUser: (): Task =>
         Login.toSauceDemoAs(
             SauceDemoCredentials.standardUser,
+            SauceDemoCredentials.defaultPassword,
+        ),
+    toSauceDemoAsLockedOutUser: (): Task =>
+        Login.toSauceDemoAs(
+            SauceDemoCredentials.lockedOutUser,
             SauceDemoCredentials.defaultPassword,
         ),
     as: (

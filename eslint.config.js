@@ -9,7 +9,7 @@ import unicorn from 'eslint-plugin-unicorn';
 export default tseslint.config(
     // Ignore patterns
     {
-        ignores: ['**/lib/**', 'node_modules/**', 'dist/**', 'target/**', 'test-results/**', 'playwright/.cache', 'playwright-report/**']
+        ignores: ['**/lib/**', 'node_modules/**', 'dist/**', 'target/**', 'test-results/**', 'playwright/.cache', 'playwright-report/**', 'reports/**']
     },
 
     // Base ESLint recommended config
